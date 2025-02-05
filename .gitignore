@@ -1,0 +1,17 @@
+.DS_Store
+.okgit/
+**/target/
+**/.idea/
+**/.DS_Store
+*.jar
+*.classpath
+*.class
+.settings
+.vscode/
+.idea
+**/node_modules/
+**/dist/
+**/*.iml
+**/mvnw.cmd
+**/mvnw
+**/.mvn/
