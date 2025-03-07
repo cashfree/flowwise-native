@@ -1,0 +1,47 @@
+payments-plugin:
+  redis:
+    hosts: "127.0.0.1"
+    port: '6379'
+    lock:
+      wait-time-in-sec: 0
+      lease-time-in-sec: 60
+  crons:
+    success-rate:
+      polling-frequency-in-millis: 60000
+      polling-interval-in-minutes: 60
+    payment-reconciliation:
+      polling-frequency-in-millis: 5000
+    payment-webhooks:
+      polling-frequency-in-millis: 5000
+    refund-reconciliation:
+      polling-frequency-in-millis: 5000
+    payment-delayed:
+      polling-frequency-in-millis: 60000
+    order-expiry:
+      polling-frequency-in-millis: 60000
+    notifications:
+      batch-size: 10
+      polling-frequency-in-millis: 5000
+    daily-settlement-job-cron-expression: "0 1 0 * * ?" # runs every day at 12:01 AM
+  auto-refund:
+    ttl-in-minutes: 7200
+  recon-config:
+    payments:
+      ttl-in-seconds: 3600
+    refunds:
+      ttl-in-seconds: 2400
+  atlas:
+    base-url: "http://localhost:8049"
+  control-panel:
+    base-url: "http://localhost:8099"
+  vault-plugin:
+    base-url: "http://localhost:8029"
+  request-filter:
+    enabled: false
+  pre-authorization:
+    mandate-hold-duration: 36000S
+  message-queue:
+    provider: "redis"
+
+  encryption-config:
+    orderHashSecretKey: 1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p
