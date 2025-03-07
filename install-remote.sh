@@ -94,7 +94,7 @@ progress_bar() {
 
 # Run both progress bars concurrently
 ( # Database setup progress bar
-    while ! curl --silent --fail "http://localhost:$SERVICE_PORT" > /dev/null; do
+    while ! curl --silent --fail "http://localhost:$SERVICE_PORT/auth/login" > /dev/null; do
         progress=$(( (progress + 1) % (bar_length + 1) ))
         progress_bar $progress $bar_length "32" "Setting up the database"
         elapsed_time=$(( $(date +%s) - start_time ))
