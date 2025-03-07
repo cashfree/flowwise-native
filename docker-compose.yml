@@ -23,6 +23,7 @@ services:
       - payments-plugin.database.validation-timeout=5000
       - payments-plugin.database.maximum-pool-size=40
       - payments-plugin.atlas.base-url=http://payments:8049
+      - payments-plugin.encryption-config.orderHashSecretKey=1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p
     depends_on:
       - mysqldb
       - redis
@@ -54,6 +55,7 @@ services:
       - payments-plugin.database.validation-timeout=5000
       - payments-plugin.database.maximum-pool-size=40
       - payments-plugin.control-panel.base-url=http://controlpanel:8099
+      - payments-plugin.encryption-config.orderHashSecretKey=1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p
     depends_on:
       - mysqldb
       - redis
