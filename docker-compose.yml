@@ -32,7 +32,7 @@ services:
 
     volumes:
       - .m2:/root/.m2
-      - ./config:/app/resources/config
+      - /tmp/deployment/config:/app/resources/config
 
   payments:
     image: "cashfreepayments/flowwise-payments-public:1.0.19"
@@ -67,7 +67,7 @@ services:
 
     volumes:
       - .m2:/root/.m2
-      - ./config:/app/resources/config
+      - /tmp/deployment/config:/app/resources/config
 
   mysqldb:
     image: "mysql:8.0"
