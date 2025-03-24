@@ -42,6 +42,20 @@ payments-plugin:
     mandate-hold-duration: 36000S
   message-queue:
     provider: "redis"
+  jwt-config:
+    secretKey: 7863eftuvgbiu3eg37ud89hd3d
+    expiryTimeInSeconds: PT24H
+
+  mail:
+    smtp:
+      host: smtp.gmail.com
+      port: 587
+      username: flowwisenative@gmail.com
+      password: nswmvraxrkhjlpap
+      protocol: smtp
+      auth: true
+      starttls:
+        enable: true
 
   encryption-config:
     orderHashSecretKey: 1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p
