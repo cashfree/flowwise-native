@@ -51,7 +51,7 @@ payments-plugin:
       host: smtp.gmail.com
       port: 587
       username: flowwisenative@gmail.com
-      password: ${SMPT_PASSWORD}
+      password: ${SMTP_PASSWORD}
       protocol: smtp
       auth: true
       starttls:
