@@ -129,7 +129,7 @@ services:
     ports:
       - "9090:9090"
     volumes:
-      - ./monitoring/prometheus:/etc/prometheus
+      - /tmp/deployment/monitoring/prometheus:/etc/prometheus
       - prometheus_data:/prometheus
     networks:
       - springapimysql-net
