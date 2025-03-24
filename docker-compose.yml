@@ -144,7 +144,7 @@ services:
       - "4000:3000"
     restart: unless-stopped
     volumes:
-      - ./monitoring/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - /tmp/deployment/monitoring/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
       - grafana_data:/var/lib/grafana
     networks:
       - springapimysql-net
