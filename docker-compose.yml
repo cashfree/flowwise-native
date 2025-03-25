@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   controlpanel:
-    image: "cashfreepayments/flowwise-cp-public:1.0.19"
+    image: "cashfreepayments/flowwise-cp-public:1.0.20"
     restart: always
     ports:
       - "8099:8099"
@@ -35,7 +35,7 @@ services:
       - /tmp/deployment/config:/app/resources/config
 
   payments:
-    image: "cashfreepayments/flowwise-payments-public:1.0.19"
+    image: "cashfreepayments/flowwise-payments-public:1.0.20"
     restart: always
     ports:
       - "8049:8049"
