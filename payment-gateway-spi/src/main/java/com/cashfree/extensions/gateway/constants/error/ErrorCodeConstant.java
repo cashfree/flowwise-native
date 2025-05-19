@@ -106,7 +106,6 @@ public class ErrorCodeConstant {
 
   static {
     httpCodeCFCodeMap = new HashMap<Integer, PGError>();
-    ;
     httpCodeCFCodeMap.put(400, BAD_REQUEST_ERROR);
     httpCodeCFCodeMap.put(401, UNAUTHORIZED_ERROR);
     httpCodeCFCodeMap.put(403, SERVICE_FORBIDDEN_ERROR);
