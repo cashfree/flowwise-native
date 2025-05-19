@@ -8,7 +8,10 @@ import java.util.Map;
 public class CommonConstants {
   public static final String EMPTY_STRING = "";
   public static final String SPACE = " ";
-
+  public static final String REDIRECTION_LINK = "link";
+  public static final String REDIRECTION_FORM_TYPE = "form";
+  public static final String REDIRECTION_FORM_POST = "POST";
+  public static final String MULTIPART_FORM_DATA = "multipart/form-data";
   public static final String PIPE = "|";
   public static final String PIPE_WITH_SPACE = " | ";
   public static final String UNDERSCORE = "_";
@@ -141,4 +144,7 @@ public class CommonConstants {
       Map.of(
           UrlType.IMAGE, "img",
           UrlType.LINK, "link");
+
+  public static final String DEFAULT_PHONE = "9898989898";
+  public static final String DEFAULT_EMAIL = "customer@customer.com";
 }

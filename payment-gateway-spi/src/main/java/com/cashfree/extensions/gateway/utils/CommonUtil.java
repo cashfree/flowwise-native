@@ -41,11 +41,11 @@ public class CommonUtil {
   public static final Map<String, PaymentMode> eligiblePaymentModeMap =
       Map.of(
           "upi",
-          PayConstants.PaymentMode.UPI,
+          PaymentMode.UPI,
           "netbanking",
-          PayConstants.PaymentMode.NET_BANKING,
+          PaymentMode.NET_BANKING,
           "card",
-          PayConstants.PaymentMode.CARD,
+          PaymentMode.CARD,
           "wallet",
           PaymentMode.WALLET);
 
@@ -89,16 +89,16 @@ public class CommonUtil {
         .setScale(currency.getDefaultFractionDigits(), RoundingMode.FLOOR);
   }
 
-  public static PayConstants.PaymentMode getPaymentModeEnum(String mode) {
-    PayConstants.PaymentMode modeEnum;
+  public static PaymentMode getPaymentModeEnum(String mode) {
+    PaymentMode modeEnum;
     try {
       if (mode.equalsIgnoreCase("netbanking")) {
         modeEnum = PaymentMode.NET_BANKING;
       } else {
-        modeEnum = PayConstants.PaymentMode.valueOf(mode.toUpperCase());
+        modeEnum = PaymentMode.valueOf(mode.toUpperCase());
       }
     } catch (IllegalArgumentException exception) {
-      modeEnum = PayConstants.PaymentMode.WALLET;
+      modeEnum = PaymentMode.WALLET;
     }
     return modeEnum;
   }
@@ -189,7 +189,7 @@ public class CommonUtil {
 
   public static String getPaymentMethod(InitiatePayRequest initiatePayRequest) {
     String mode = initiatePayRequest.getMode();
-    PayConstants.PaymentMode paymentMode = CommonUtil.eligiblePaymentModeMap.get(mode);
+    PaymentMode paymentMode = CommonUtil.eligiblePaymentModeMap.get(mode);
     switch (paymentMode) {
       case CREDIT_CARD:
       case DEBIT_CARD:

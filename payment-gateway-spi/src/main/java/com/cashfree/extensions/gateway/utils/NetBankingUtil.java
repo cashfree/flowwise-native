@@ -29,6 +29,7 @@ public class NetBankingUtil {
           .bankName(String.valueOf(data.getOrDefault(BANK_NAME, EMPTY_STRING)))
           .build();
     } else {
+
       // throw exception
       return null;
     }

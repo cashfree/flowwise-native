@@ -1,6 +1,5 @@
 package com.cashfree.extensions.gateway.gateway;
 
-import com.cashfree.extensions.commonlib.domain.extension.ConfigAttribute;
 import com.cashfree.extensions.gateway.domains.AuthorizePayRequest;
 import com.cashfree.extensions.gateway.domains.CardInitiatePayResponse;
 import com.cashfree.extensions.gateway.domains.InitiatePayRequest;
@@ -11,6 +10,7 @@ import com.cashfree.extensions.gateway.domains.PaymentRefundResponse;
 import com.cashfree.extensions.gateway.domains.PaymentStatusResponse;
 import com.cashfree.extensions.gateway.domains.RouteConfigResponse;
 import com.cashfree.extensions.gateway.domains.VerifyOTPRequest;
+import com.cashfree.extensions.gateway.domains.extension.PaymentGatewayConfigAttribute;
 import com.cashfree.extensions.gateway.domains.settlement.SettlementDetailRequest;
 import com.cashfree.extensions.gateway.domains.settlement.SettlementDetailsResponse;
 import java.util.List;
@@ -20,12 +20,8 @@ public interface PaymentGateway {
 
   String getProcessor();
 
-  default List<ConfigAttribute> getDefaultExtensionAttributes() {
+  default List<PaymentGatewayConfigAttribute> getDefaultExtensionAttributes() {
     return List.of();
-  }
-
-  default boolean isGatewayCustomImplemented() {
-    return false;
   }
 
   InitiatePayResponse initiateGatewayPay(
