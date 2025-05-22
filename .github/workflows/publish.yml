@@ -27,18 +27,17 @@ jobs:
       - name: Build with Maven
         run: mvn -B -f payment-gateway-spi/pom.xml clean package
 
-      - name: Set up GPG for signing
-        uses: crazy-max/ghaction-import-gpg@v6
-        with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.GPG_PASSPHRASE }}
-
       - name: Publish to Maven Central (OSSRH)
-        run: mvn -B -f payment-gateway-spi/pom.xml deploy -P release --settings .github/maven-settings.xml
+        run: |
+          echo "$SIGNING_KEY" > private.key
+          gpg --batch --import private.key
+          mvn -B -f payment-gateway-spi/pom.xml deploy -P release --settings .github/maven-settings.xml
+          rm -f private.key
         env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          SIGNING_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
 
       - name: Clean up
         run: rm -f .github/maven-settings.xml
